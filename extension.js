@@ -1,17 +1,14 @@
 const vscode = require("vscode");
 const fs = require("fs");
 const path = require("path");
-const { open } = require("fs").promises;
-const { exec } = require("child_process");
 
 /**
  * @param {vscode.ExtensionContext} context
  */
 
 function activate(context) {
-    // Define the directory and file paths
     const directoryPath = path.join("C:", "journal");
-    const filePath = path.join(directoryPath, "daily.txt");
+    const filePath = path.join(directoryPath, "journal.txt");
 
     try {
         if (!fs.existsSync(directoryPath)) {
@@ -22,7 +19,8 @@ function activate(context) {
         }
 
         if (!fs.existsSync(filePath)) {
-            fs.writeFileSync(filePath, `${Date.now()}\n`, (err) => {
+            const content = "✨ Start your Journaling Here! ✨\n";
+            fs.writeFileSync(filePath, content, (err) => {
                 if (err) {
                     console.log(err);
                 } else {
@@ -30,29 +28,32 @@ function activate(context) {
                 }
             });
         }
-
-        if (fs.existsSync(filePath)) {
-            exec(`notepad ${directoryPath}`, (err) => {
-                if (err) {
-                    console.error("Failed to open file in VS Code:", err);
-                } else {
-                    console.log("File opened in VS Code.");
-                }
-            });
-            
-        }
     } catch (error) {
         console.error("Error occurred:", error);
     }
-    const disposable = vscode.commands.registerCommand(
-        "journal-vscode.helloWorld",
-        function () {
-            // The code you place here will be executed every time your command is executed
 
-            // Display a message box to the user
-            vscode.window.showInformationMessage(
-                "Hello World from journal-vscode!"
-            );
+    const disposable = vscode.commands.registerCommand(
+        "journal-vscode.journal",
+        async function () {
+            const currentDate = new Date().toLocaleString();
+
+            try {
+                if (fs.existsSync(filePath)) {
+                    fs.appendFile(filePath, `\n${currentDate} ⌚\n`, async(err) => {
+                        if (err) {
+                            vscode.window.showErrorMessage(
+                                "Error writing to the file"
+                            );
+                            return;
+                        }
+
+                        const doc = await vscode.workspace.openTextDocument(filePath);
+                        await vscode.window.showTextDocument(doc)
+                    });
+                }
+            } catch (error) {
+                console.log(error);
+            }
         }
     );
 

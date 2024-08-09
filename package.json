@@ -9,12 +9,12 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [g],
+  "activationEvents": [],
   "main": "./extension.js",
   "contributes": {
     "commands": [{
-      "command": "journal-vscode.helloWorld",
-      "title": "Hello World"
+      "command": "journal-vscode.journal",
+      "title": "Journal"
     }]
   },
   "scripts": {
