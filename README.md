@@ -1,65 +1,24 @@
-# journal-vscode README
+# Journal VS Code Extension
 
-This is the README for your extension "journal-vscode". After writing up a brief description, we recommend including the following sections.
+## Description
+The Journal VS Code Extension allows you to easily maintain a journal within VS Code. When triggered, it appends the current date and time to a file for easy entry of your journal content.
 
-## Features
+## Installation
+- Open VS Code.
+- Go to the Extensions view by clicking the square icon on the sidebar or pressing Ctrl+Shift+X.
+- Search for Journal VS Code Extension.
+- Click the Install button.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## Usage
+- Open the Command Palette by pressing Ctrl+Shift+P or Cmd+Shift+P on macOS.
+- Type whatever you want.
+- Ctrl + Save for save
 
-For example if there is an image subfolder under your extension project workspace:
+## Configuration
+This extension saves the journal entries to a file located at C:\journal\journal.txt by default. You can modify the directoryPath and filePath variables in the extension code to change the file location.
 
-\!\[feature X\]\(images/feature-x.png\)
+## Contributing
+Contributions are welcome! If you have suggestions or find issues, please open an issue or submit a pull request on [GitHub](https://github.com/abhradeepbarman/journal-vscode-extension.git).
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+## Contact
+For any questions or feedback, please contact [Abhradeep Barman](https://www.linkedin.com/in/abhradeepbarman/).
