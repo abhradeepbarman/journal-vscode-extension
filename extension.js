@@ -39,7 +39,7 @@ function activate(context) {
 
             try {
                 if (fs.existsSync(filePath)) {
-                    fs.appendFile(filePath, `\n\n${currentDate} ⌚\n`, async(err) => {
+                    fs.appendFile(filePath, `\n\n\n${currentDate} ⌚\n`, async(err) => {
                         if (err) {
                             vscode.window.showErrorMessage(
                                 "Error writing to the file"
